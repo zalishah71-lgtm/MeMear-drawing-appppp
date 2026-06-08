@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>AR Drawing Trace App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <video id="camera" autoplay playsinline muted></video>
+
+    <div id="imageLayer">
+      <img id="traceImage" alt="Tracing Image" />
+    </div>
+
+    <div class="topBar">
+      <div class="title">AR Drawing Trace</div>
+      <button id="fullscreenBtn">Fullscreen</button>
+    </div>
+
+    <div class="controlPanel" id="controlPanel">
+      <label class="uploadButton">
+        Upload Picture
+        <input type="file" id="imageUpload" accept="image/*" />
+      </label>
+
+      <div class="control">
+        <label>Opacity</label>
+        <input type="range" id="opacitySlider" min="0.05" max="1" step="0.05" value="0.85" />
+      </div>
+
+      <div class="control">
+        <label>Remove BG</label>
+        <input type="range" id="thresholdSlider" min="80" max="250" step="1" value="205" />
+      </div>
+
+      <div class="control">
+        <label>Line Strength</label>
+        <input type="range" id="strengthSlider" min="1" max="5" step="0.1" value="2.8" />
+      </div>
+
+      <div class="control">
+        <label>Size</label>
+        <input type="range" id="sizeSlider" min="0.2" max="4" step="0.05" value="1" />
+      </div>
+
+      <div class="control">
+        <label>Rotate</label>
+        <input type="range" id="rotateSlider" min="-180" max="180" step="1" value="0" />
+      </div>
+
+      <div class="buttons three">
+        <button id="lineBtn">Lines Only ON</button>
+        <button id="lockBtn">Lock</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <div class="buttons two">
+        <button id="switchCameraBtn">Switch Camera</button>
+        <button id="hidePanelBtn">Hide Controls</button>
+      </div>
+
+      <p class="hint">
+        Best use: keep <strong>Lines Only ON</strong>. Increase <strong>Remove BG</strong> until the white background disappears.
+        Use <strong>Line Strength</strong> to make lines darker.
+      </p>
+    </div>
+
+    <button id="showPanelBtn" class="hidden">Show Controls</button>
+
+    <div id="message">Please allow camera access.</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
